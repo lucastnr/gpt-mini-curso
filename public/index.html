@@ -170,10 +170,15 @@
 
         setLoading(true);
 
-        // 1. Fazer a requisição para o backend (Simulando uma requisição)
-        await new Promise((resolve) => setTimeout(resolve, 1000));
+        // 1. Fazer a requisição para o backend
+        const response = await fetch(
+          "http://localhost:3000/chat?content=" + userMessage
+        );
+        const assistantResponse = await response.json();
+
+        console.log(assistantResponse);
+
         // 2. Pegar a resposta do backend (Simulando uma resposta)
-        const assistantResponse = "Resposta da IA aqui";
         // 3. Adicionar a resposta do backend no container de mensagens
         addMessage(assistantResponse, "assistant");
 
