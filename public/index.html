@@ -177,9 +177,6 @@
           url += "&id=" + chatId;
         }
 
-        console.log(url);
-
-
         // 1. Fazer a requisição para o backend
         const response = await fetch(url);
         const { role, content, id } = await response.json();
