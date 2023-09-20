@@ -174,13 +174,11 @@
         const response = await fetch(
           "http://localhost:3000/chat?content=" + userMessage
         );
-        const assistantResponse = await response.json();
-
-        console.log(assistantResponse);
+        const { role, content } = await response.json();
 
         // 2. Pegar a resposta do backend (Simulando uma resposta)
         // 3. Adicionar a resposta do backend no container de mensagens
-        addMessage(assistantResponse, "assistant");
+        addMessage(content, role);
 
         // Terminou de carregar
         setLoading(false);
