@@ -173,7 +173,7 @@
 
         let url = "http://localhost:3000/chat?content=" + userMessage;
 
-        if (chatId) {
+        if (chatId !== null) {
           url += "&id=" + chatId;
         }
 
