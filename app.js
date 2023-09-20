@@ -5,7 +5,7 @@ import { chat } from "./src/gpt.js";
 const app = express();
 app.use(express.json());
 
-app.get("/chat", (req, res) => {
+app.get("/chat", async (req, res) => {
   const { content } = req.query;
 
   if (!content) {
@@ -13,9 +13,9 @@ app.get("/chat", (req, res) => {
     return;
   }
 
-  chat
+  const result = await chat(content);
 
-  res.send("");
+  res.send(result);
 });
 
 // Query params
