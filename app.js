@@ -26,7 +26,6 @@ app.get("/chat", async (req, res) => {
   chats[id].push({ content: content, role: "user" });
 
 
-
   const result = await chat(content);
   const assistantMessage = result.choices[0].message;
 

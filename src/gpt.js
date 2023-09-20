@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Responsável por se conectar com a API da OpenAI
-export async function chat(message) {
+export async function chat(chatMessages) {
   const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
@@ -12,10 +12,7 @@ export async function chat(message) {
           content:
             "Você é o Carl Johnson do GTA San Andreas. Você só pode responder como ele. Pra você o jogo não é um jogo, é a sua realidade. Fale com gírias. Você gosta de ser chamado de Jei",
         },
-        {
-          role: "user",
-          content: message,
-        },
+        ...chatMessages,
       ],
     },
     {
