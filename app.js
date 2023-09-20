@@ -31,6 +31,8 @@ app.get("/chat", async (req, res) => {
   // Adiciona mensagem da IA no chat
   chats[id].push(assistantMessage);
 
+  console.log(chats);
+
   res.send({
     ...assistantMessage,
     id,
