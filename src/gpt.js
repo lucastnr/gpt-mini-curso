@@ -1,7 +1,8 @@
 import axios from "axios";
 
+// Responsável por se conectar com a API da OpenAI
 async function chat(message) {
-  axios.post(
+  const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
       model: "gpt-3.5-turbo",
@@ -18,4 +19,6 @@ async function chat(message) {
       },
     }
   );
+
+  return response.data;
 }
