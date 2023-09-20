@@ -14,12 +14,13 @@ app.get("/chat", async (req, res) => {
   }
 
   const result = await chat(content);
+  const assistantMessage = result.choices[0].message;
 
-  res.send(result);
+  res.send(assistantMessage);
 });
 
 // Query params
-// localhost:3000/chat?content=Beleza&usuario=lucas
+// localhost:3000/chat?content=Oi tudo bem?
 
 app.use("/", express.static("public"));
 
