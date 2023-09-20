@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // Responsável por se conectar com a API da OpenAI
-async function chat(message) {
+export async function chat(message) {
   const response = await axios.post(
     "https://api.openai.com/v1/chat/completions",
     {
