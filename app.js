@@ -25,7 +25,7 @@ app.get("/chat", async (req, res) => {
   // Adiciona mensagem do usuário no chat
   chats[id].push({ content: content, role: "user" });
 
-  const result = await chat(content);
+  const result = await chat(chats[id]);
   const assistantMessage = result.choices[0].message;
 
   // Adiciona mensagem da IA no chat
